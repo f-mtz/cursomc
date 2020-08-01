@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "categorias")
 public class Categoria implements Serializable{
@@ -22,6 +24,11 @@ public class Categoria implements Serializable{
 	private Integer id;
 	private String nome;
 	
+	/**A anotation abaixo se faz no lado que queremos que venha os objetos associados, 
+	 * ou seja, ao chamar uma categoria, os produtos associados a cada categoria serão listados
+	 * Já do outro lado, inserimos a anotation @JsonBackReference para omitir a lista de categorias
+	 * associadas a cada produto*/
+	@JsonManagedReference
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
