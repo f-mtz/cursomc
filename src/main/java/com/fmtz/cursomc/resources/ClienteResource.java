@@ -11,7 +11,7 @@ import com.fmtz.cursomc.domain.Cliente;
 import com.fmtz.cursomc.services.ClienteService;
 
 @RestController
-@RequestMapping(value = "/cliente")
+@RequestMapping(value = "/clientes")
 public class ClienteResource {
 	
 	@Autowired
